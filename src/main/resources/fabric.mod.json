@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "kkiwieeemod",
+	"version": "${version}",
+	"name": "kkiwieee Mod",
+	"description": "This is a mod with everything I wanted to add!",
+	"authors": [
+		"kkiwieee!"
+	],
+	"contact": {
+		"homepage": "N/A",
+		"sources": "N/A"
+	},
+	"license": "MIT",
+	"icon": "assets/kkiwieeemod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.kkiwieee.kkiwieeemod.KkiwieeeMod"
+		],
+		"client": [
+			"net.kkiwieee.kkiwieeemod.KkiwieeeModClient"
+		],
+		"fabric-datagen": [
+			"net.kkiwieee.kkiwieeemod.KkiwieeeModDataGenerator"
+		]
+	},
+	"mixins": [
+		"kkiwieeemod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.6",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
