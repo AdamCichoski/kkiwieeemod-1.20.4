@@ -38,6 +38,8 @@
   // Fuel
   "item.kkiwieeemod.coal_briquette": "Coal Briquette",
 
+  // Enchantments
+  "enchantment.kkiwieeemod.thunder": "The Touch of God",
 
   // Sounds
   "sounds.kkiwieeemod.metal_detector_found_ore": "Metal Detector Jingle",
