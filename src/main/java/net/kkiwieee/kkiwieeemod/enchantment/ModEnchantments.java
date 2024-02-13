@@ -12,7 +12,6 @@ import net.minecraft.util.Identifier;
 public class ModEnchantments {
     public static Enchantment THUNDER = register("thunder", new ThunderEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW, EquipmentSlot.MAINHAND));
 
-
     private static Enchantment register(String name, Enchantment enchantment) {
         return Registry.register(Registries.ENCHANTMENT, new Identifier(KkiwieeeMod.MOD_ID, name), enchantment);
     }
