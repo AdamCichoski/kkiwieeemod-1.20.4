@@ -1,6 +1,7 @@
 package net.kkiwieee.kkiwieeemod.enchantment;
 
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 
@@ -17,6 +18,8 @@ public class VeinMinerEnchantment extends Enchantment {
     @Override
     public int getMaxLevel() {
         return 1;
+
     }
+
 
 }

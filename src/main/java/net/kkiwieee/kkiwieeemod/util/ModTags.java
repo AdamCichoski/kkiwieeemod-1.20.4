@@ -16,6 +16,7 @@ public class ModTags  {
             return TagKey.of(RegistryKeys.BLOCK, new Identifier(KkiwieeeMod.MOD_ID, name));
         }
 
+
     }
 
     public static class Items {
