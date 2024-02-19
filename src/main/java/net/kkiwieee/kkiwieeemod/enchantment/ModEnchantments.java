@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 
 public class ModEnchantments {
     public static Enchantment THUNDER = register("thunder", new ThunderEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.BOW, EquipmentSlot.MAINHAND));
-    public static Enchantment VEIN_MINE = register("vein_mine", new VeinMinerEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.DIGGER, EquipmentSlot.MAINHAND));
+    public static Enchantment VEIN_MINE = register("vein_mine", new VeinMineEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.DIGGER, EquipmentSlot.MAINHAND));
 
     private static Enchantment register(String name, Enchantment enchantment) {
         return Registry.register(Registries.ENCHANTMENT, new Identifier(KkiwieeeMod.MOD_ID, name), enchantment);

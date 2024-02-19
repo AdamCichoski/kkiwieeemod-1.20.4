@@ -5,8 +5,10 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.kkiwieee.kkiwieeemod.block.ModBlocks;
 import net.kkiwieee.kkiwieeemod.enchantment.ModEnchantments;
+import net.kkiwieee.kkiwieeemod.enchantment.VeinMineEnchantment;
 import net.kkiwieee.kkiwieeemod.item.ModItemGroups;
 import net.kkiwieee.kkiwieeemod.item.ModItems;
+import net.kkiwieee.kkiwieeemod.mixin.VeinMineHandler;
 import net.kkiwieee.kkiwieeemod.sound.ModSounds;
 import net.kkiwieee.kkiwieeemod.util.ModCustomTrades;
 import net.kkiwieee.kkiwieeemod.util.ModLootTableModifiers;
@@ -36,5 +38,6 @@ public class KkiwieeeMod implements ModInitializer {
 		ModWorldGeneration.generateModWorldGen();
 
 		ModEnchantments.registerModEnchantments();
+
 	}
 }

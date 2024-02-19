@@ -1,39 +1,29 @@
 package net.kkiwieee.kkiwieeemod.mixin;
 
-import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.kkiwieee.kkiwieeemod.enchantment.ModEnchantments;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+@Mixin(Block.class)
 public class VeinMineHandler {
-    public static void register() {
-        UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
-            ItemStack heldItem = player.getStackInHand(hand);
-            if (heldItem.isEmpty()) {
-                return ActionResult.PASS;
+
+    @Inject(method = "onBreak", at = @At("TAIL"))
+    private void register(World world , BlockPos pos, BlockState state, PlayerEntity player, CallbackInfoReturnable<Boolean> info) {
+        if (EnchantmentHelper.getLevel(ModEnchantments.VEIN_MINE, player.getMainHandStack()) > 0) {
+            if (isOre(state.getBlock()) && hasNeighboringBlockState(world, pos, state.getBlock())) {
+                veinMine(world, pos, state.getBlock());
             }
-
-            if (EnchantmentHelper.getLevel(ModEnchantments.VEIN_MINE, heldItem) > 0) {
-                BlockPos pos = hitResult.getBlockPos();
-                Block block = world.getBlockState(pos).getBlock();
-
-                if (isOre(block)) {
-                    if (hasNeighboringBlockState(world, pos, block)) {
-                        veinMine(world, pos, block);
-                        return ActionResult.SUCCESS;
-                    }
-                }
-            }
-
-            return ActionResult.PASS;
-        });
+        }
     }
 
     private static boolean isOre(Block block) {
@@ -47,9 +37,8 @@ public class VeinMineHandler {
                 pos.east(),
                 pos.west(),
                 pos.up(),
-                pos.down()
+                pos.down(),
         };
-
         for (BlockPos neighborPos : neighbors) {
             BlockState neighborBlockState = world.getBlockState(neighborPos);
             if (neighborBlockState.getBlock() == targetBlock) {
@@ -61,7 +50,7 @@ public class VeinMineHandler {
         return false;
     }
 
-    public static void veinMine(World world, BlockPos pos, Block targetBlock) {
+    private static void veinMine(World world, BlockPos pos, Block targetBlock) {
         BlockState blockState = world.getBlockState(pos);
         Block block = blockState.getBlock();
 

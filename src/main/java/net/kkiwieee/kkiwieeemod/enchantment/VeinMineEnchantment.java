@@ -1,11 +1,15 @@
 package net.kkiwieee.kkiwieeemod.enchantment;
 
+import net.kkiwieee.kkiwieeemod.mixin.VeinMineHandler;
+import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
-public class VeinMinerEnchantment extends Enchantment {
-    public VeinMinerEnchantment(Rarity rarity, EnchantmentTarget target, EquipmentSlot... slotTypes) {
+public class VeinMineEnchantment extends Enchantment {
+    public VeinMineEnchantment(Rarity rarity, EnchantmentTarget target, EquipmentSlot... slotTypes) {
         super(rarity, target, slotTypes);
     }
 
@@ -18,7 +22,7 @@ public class VeinMinerEnchantment extends Enchantment {
     public int getMaxLevel() {
         return 1;
 
-    }
 
+    }
 
 }
