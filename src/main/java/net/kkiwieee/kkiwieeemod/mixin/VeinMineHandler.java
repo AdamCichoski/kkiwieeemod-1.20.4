@@ -1,5 +1,6 @@
 package net.kkiwieee.kkiwieeemod.mixin;
 
+import net.kkiwieee.kkiwieeemod.block.ModBlocks;
 import net.kkiwieee.kkiwieeemod.enchantment.ModEnchantments;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -27,7 +28,8 @@ public class VeinMineHandler {
     }
 
     private static boolean isOre(Block block) {
-        return block == Blocks.IRON_ORE || block == Blocks.GOLD_ORE || block == Blocks.DIAMOND_ORE || block == Blocks.COPPER_ORE;
+        return block == Blocks.IRON_ORE || block == Blocks.GOLD_ORE || block == Blocks.DIAMOND_ORE || block == Blocks.COPPER_ORE || block == ModBlocks.RUBY_ORE
+                || block == Blocks.COAL_ORE || block == Blocks.LAPIS_ORE || block == Blocks.REDSTONE_ORE || block == Blocks.NETHER_GOLD_ORE;
     }
 
     private static boolean hasNeighboringBlockState(World world, BlockPos pos, Block targetBlock) {
@@ -45,7 +47,6 @@ public class VeinMineHandler {
                 return true;
             }
         }
-
 
         return false;
     }
