@@ -3,7 +3,8 @@
 	"package": "net.kkiwieee.kkiwieeemod.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"VeinMineHandler"
+		"VeinMineHandler",
+		"TimberHandler"
 	],
 	"injectors": {
 		"defaultRequire": 1
